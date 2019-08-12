@@ -7,7 +7,7 @@ use nymedia\SuperOffice\resources\Document;
 use nymedia\SuperOffice\resources\Person;
 use nymedia\SuperOffice\resources\Project;
 use nymedia\SuperOffice\resources\ProjectMember;
-use nymedia\SuperOffice\resources\Request;
+use nymedia\SuperOffice\resources\Ticket;
 
 class Client
 {
@@ -67,9 +67,9 @@ class Client
         return new Document($this);
     }
 
-    public function request()
+    public function ticket()
     {
-        return new Request($this);
+        return new Ticket($this);
     }
 
     public function get($path, $data = null)

@@ -4,9 +4,9 @@ namespace nymedia\SuperOffice\resources;
 
 use nymedia\SuperOffice\RestBase;
 
-class Request extends RestBase
+class Ticket extends RestBase
 {
 
-  protected $resourcePath = 'Request';
+  protected $resourcePath = 'Ticket';
 
 }

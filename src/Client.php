@@ -20,6 +20,8 @@ class Client {
 
   protected $user;
 
+  protected $language = 'en';
+
   public function getClient()
   {
     if (!$this->client) {
@@ -28,12 +30,13 @@ class Client {
     return $this->client;
   }
 
-  public function __construct($url, $user, $password, $client = null)
+  public function __construct($url, $user, $password, $client = null, $language)
   {
     $this->url = $url;
     $this->client = $client;
     $this->user = $user;
     $this->password = $password;
+    $this->language = $language;
   }
 
   public function projectMember()
@@ -77,6 +80,7 @@ class Client {
       'headers' => [
         'User-Agent' => 'Superoffice PHP SDK (https://github.com/nymedia/superoffice-php-sdk)',
         'Accept' => 'application/json',
+        'Accept-Language' => $this->language,
       ],
       'auth' => [$this->user, $this->password],
     ];

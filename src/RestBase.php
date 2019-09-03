@@ -13,18 +13,18 @@ class RestBase {
     $this->client = $client;
   }
 
-  public function post($data)
+  public function post($data, $clientOptions = [])
   {
-    return $this->client->post($this->resourcePath, $data);
+    return $this->client->post($this->resourcePath, $data, $clientOptions);
   }
 
-  public function get($path = null)
+  public function get($path = null, $clientOptions = [])
   {
     $assembled_path = $this->resourcePath;
     if ($path) {
       $assembled_path = sprintf('%s/%s', $this->resourcePath, $path);
     }
-    return $this->client->get($assembled_path);
+    return $this->client->get($assembled_path, null, $clientOptions);
   }
 
   public function getStream($path)
@@ -32,14 +32,14 @@ class RestBase {
       return $this->client->get($this->resourcePath . '/' . $path, null, ['stream'=>true]);
   }
 
-  public function getWithParameters($path = '', $params = [])
+  public function getWithParameters($path = '', $params = [], $clientOptions = [])
   {
-    return $this->client->get($this->resourcePath . '/' . $path, $params);
+    return $this->client->get($this->resourcePath . '/' . $path, $params, $clientOptions);
   }
 
-  public function put($id, $data)
+  public function put($id, $data, $clientOptions = [])
   {
-    return $this->client->put($this->resourcePath . '/' . $id, $data);
+    return $this->client->put($this->resourcePath . '/' . $id, $data, $clientOptions);
   }
 
 }

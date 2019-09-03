@@ -72,22 +72,23 @@ class Client
         return new Ticket($this);
     }
 
-    public function get($path, $data = null)
+    public function get($path, $data = null, $clientOptions = [])
     {
-        return $this->apiCall('GET', $this->url . '/' . $path, $data);
+        return $this->apiCall('GET', $this->url . '/' . $path, $data, $clientOptions);
     }
 
-    public function post($path, $data)
+    public function post($path, $data, $clientOptions = [])
     {
-        return $this->apiCall('POST', $this->url . '/' . $path, $data);
+        return $this->apiCall('POST', $this->url . '/' . $path, $data, $clientOptions);
     }
 
-    public function put($path, $data)
+    public function put($path, $data, $clientOptions = [])
     {
-        return $this->apiCall('PUT', $this->url . '/' . $path, $data);
+        return $this->apiCall('PUT', $this->url . '/' . $path, $data, $clientOptions);
     }
 
-    protected function apiCall($method, $path, $data = null)
+
+    protected function apiCall($method, $path, $data = null, $clientOptions = [])
     {
         $opts = [
             'headers' => [
@@ -97,6 +98,9 @@ class Client
             ],
             'auth' => [$this->user, $this->password],
         ];
+        if ($clientOptions) {
+            $opts = array_merge($opts,$clientOptions);
+        }
         if ($data && $method != 'GET') {
             // Set all needed options with this shorthand.
             $opts['json'] = $data;

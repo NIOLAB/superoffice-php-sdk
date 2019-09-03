@@ -27,6 +27,11 @@ class RestBase {
     return $this->client->get($assembled_path);
   }
 
+  public function getStream($path)
+  {
+      return $this->client->get($this->resourcePath . '/' . $path, null, ['stream'=>true]);
+  }
+
   public function getWithParameters($path = '', $params = [])
   {
     return $this->client->get($this->resourcePath . '/' . $path, $params);

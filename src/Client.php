@@ -95,6 +95,7 @@ class Client
                 'User-Agent' => 'Superoffice PHP SDK (https://github.com/nymedia/superoffice-php-sdk)',
                 'Accept' => 'application/json',
                 'Accept-Language' => $this->language,
+                'Content'=>'application/json',
             ],
             'auth' => [$this->user, $this->password],
         ];

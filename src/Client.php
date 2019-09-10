@@ -2,11 +2,13 @@
 
 namespace nymedia\SuperOffice;
 
+use nymedia\SuperOffice\resources\Appointment;
 use nymedia\SuperOffice\resources\Contact;
 use nymedia\SuperOffice\resources\Document;
 use nymedia\SuperOffice\resources\Person;
 use nymedia\SuperOffice\resources\Project;
 use nymedia\SuperOffice\resources\ProjectMember;
+use nymedia\SuperOffice\resources\Sale;
 use nymedia\SuperOffice\resources\Ticket;
 
 class Client
@@ -72,6 +74,16 @@ class Client
         return new Ticket($this);
     }
 
+    public function appointment()
+    {
+        return new Appointment($this);
+    }
+
+    public function sale()
+    {
+        return new Sale($this);
+    }
+
     public function agent()
     {
         return new Agent($this);
@@ -91,7 +103,6 @@ class Client
     {
         return $this->apiCall('PUT', $this->url . '/' . $path, $data, $clientOptions);
     }
-
 
     protected function apiCall($method, $path, $data = null, $clientOptions = [])
     {

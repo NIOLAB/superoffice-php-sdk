@@ -72,6 +72,11 @@ class Client
         return new Ticket($this);
     }
 
+    public function agent()
+    {
+        return new Agent($this);
+    }
+
     public function get($path, $data = null, $clientOptions = [])
     {
         return $this->apiCall('GET', $this->url . '/' . $path, $data, $clientOptions);
@@ -95,12 +100,11 @@ class Client
                 'User-Agent' => 'Superoffice PHP SDK (https://github.com/nymedia/superoffice-php-sdk)',
                 'Accept' => 'application/json',
                 'Accept-Language' => $this->language,
-                'Content'=>'application/json',
             ],
             'auth' => [$this->user, $this->password],
         ];
         if ($clientOptions) {
-            $opts = array_merge($opts,$clientOptions);
+            $opts = array_merge_recursive($opts,$clientOptions);
         }
         if ($data && $method != 'GET') {
             // Set all needed options with this shorthand.

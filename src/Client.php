@@ -10,6 +10,7 @@ use nymedia\SuperOffice\resources\Project;
 use nymedia\SuperOffice\resources\ProjectMember;
 use nymedia\SuperOffice\resources\Sale;
 use nymedia\SuperOffice\resources\Ticket;
+use nymedia\SuperOffice\resources\TicketMessage;
 
 class Client
 {
@@ -72,6 +73,11 @@ class Client
     public function ticket()
     {
         return new Ticket($this);
+    }
+
+    public function ticketMessage()
+    {
+        return new TicketMessage($this);
     }
 
     public function appointment()

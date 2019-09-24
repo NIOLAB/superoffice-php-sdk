@@ -110,6 +110,11 @@ class Client
         return $this->apiCall('PUT', $this->url . '/' . $path, $data, $clientOptions);
     }
 
+    public function patch($path, $data, $clientOptions = [])
+    {
+        return $this->apiCall('PATCH', $this->url . '/' . $path, $data, $clientOptions);
+    }
+
     protected function apiCall($method, $path, $data = null, $clientOptions = [])
     {
         $opts = [

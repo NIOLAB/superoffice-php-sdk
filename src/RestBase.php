@@ -42,4 +42,8 @@ class RestBase {
     return $this->client->put($this->resourcePath . '/' . $id, $data, $clientOptions);
   }
 
+  public function patch($id, $data, $clientOptions = [])
+  {
+    return $this->client->patch($this->resourcePath . '/' . $id, $data, $clientOptions);
+  }
 }

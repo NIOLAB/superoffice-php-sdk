@@ -130,7 +130,7 @@ class Client
                 'Accept-Language' => $this->language,
             ],
             'auth' => [$this->user, $this->password],
-            'timeout' => 4
+            'timeout' => 20
         ];
         if ($clientOptions) {
             $opts = array_merge_recursive($opts,$clientOptions);

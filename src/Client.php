@@ -8,6 +8,7 @@ use nymedia\SuperOffice\resources\Document;
 use nymedia\SuperOffice\resources\Person;
 use nymedia\SuperOffice\resources\Project;
 use nymedia\SuperOffice\resources\ProjectMember;
+use nymedia\SuperOffice\resources\Relation;
 use nymedia\SuperOffice\resources\Sale;
 use nymedia\SuperOffice\resources\Ticket;
 use nymedia\SuperOffice\resources\TicketMessage;
@@ -93,6 +94,11 @@ class Client
     public function agent()
     {
         return new Agent($this);
+    }
+
+    public function relation()
+    {
+        return new Relation($this);
     }
 
     public function get($path, $data = null, $clientOptions = [])

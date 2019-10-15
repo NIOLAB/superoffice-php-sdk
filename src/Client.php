@@ -121,6 +121,11 @@ class Client
         return $this->apiCall('PATCH', $this->url . '/' . $path, $data, $clientOptions);
     }
 
+    public function delete($path, $data = null, $clientOptions = [])
+    {
+        return $this->apiCall('DELETE', $this->url . '/' . $path, $data, $clientOptions);
+    }
+
     protected function apiCall($method, $path, $data = null, $clientOptions = [])
     {
         $opts = [

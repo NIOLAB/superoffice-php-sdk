@@ -9,6 +9,7 @@ use nymedia\SuperOffice\resources\Person;
 use nymedia\SuperOffice\resources\Project;
 use nymedia\SuperOffice\resources\ProjectMember;
 use nymedia\SuperOffice\resources\Relation;
+use nymedia\SuperOffice\resources\Role;
 use nymedia\SuperOffice\resources\Sale;
 use nymedia\SuperOffice\resources\Ticket;
 use nymedia\SuperOffice\resources\TicketMessage;
@@ -95,6 +96,11 @@ class Client
     public function user()
     {
         return new User($this);
+    }
+
+    public function role()
+    {
+        return new Role($this);
     }
 
     public function agent()

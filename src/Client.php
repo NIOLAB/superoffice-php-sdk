@@ -12,6 +12,7 @@ use nymedia\SuperOffice\resources\Relation;
 use nymedia\SuperOffice\resources\Sale;
 use nymedia\SuperOffice\resources\Ticket;
 use nymedia\SuperOffice\resources\TicketMessage;
+use nymedia\SuperOffice\resources\User;
 
 class Client
 {
@@ -89,6 +90,11 @@ class Client
     public function sale()
     {
         return new Sale($this);
+    }
+
+    public function user()
+    {
+        return new User($this);
     }
 
     public function agent()
